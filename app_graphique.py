@@ -1,7 +1,7 @@
 import tkinter as tk
 import customtkinter as ctk
-import ollama
-import re 
+from ollama import chat
+import re # enleve <thing>
 import threading  # Pour exécuter l'IA sans bloquer l'interface
 
 # Configuration de l'apparence
@@ -53,7 +53,8 @@ def initialize_context(role_description: str):
     user_role = role_description  # Stocke le rôle choisi
     context_message = {
         'role': 'system',
-        'content': f"Tu es un assistant spécialisé en {role_description}. Réponds toujours en respectant ce rôle."
+        'content': f"Tu es un assistant spécialisé qui agit en tant que {role_description}. " \
+                  f"Réponds toujours en respectant ce rôle."
     }
     messages_history.append(context_message)
     chat_display.insert(tk.END, f"\n🔹 Contexte défini : {role_description}\n", "info")
@@ -88,7 +89,7 @@ def send_message():
 
     # Exécuter l'IA en arrière-plan pour éviter le blocage de l'UI
     def process_ai():
-        response = ollama.chat(model="deepseek-r1", messages=messages_history)
+        response = chat(model="deepseek-r1", messages=messages_history)
         bot_response = clean_response(response['message']['content'])
 
         # Supprimer la barre de chargement
