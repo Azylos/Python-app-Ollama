@@ -3,7 +3,7 @@
 ## 🎯 Objectif  
 Ce projet a pour but d'utiliser **Ollama** pour exécuter un modèle de langage localement. Développement d'une application Python qui interagit avec **DeepSeek-R1**, avec la possibilité de choisir entre trois types d'interfaces pour votre application finale.
 
----
+***
 
 ## 🛠️ Prérequis  
 Avant de commencer, assurez-vous d’avoir :  
@@ -11,7 +11,7 @@ Avant de commencer, assurez-vous d’avoir :
 - **Ollama** installé ([Guide d'installation](https://ollama.com/download))  
 - **DeepSeek-R1** téléchargé  
 
----
+***
 
 ## 🚀 Lancer le modèle  
 Exécutez la commande suivante pour démarrer le modèle DeepSeek-R1 :  
